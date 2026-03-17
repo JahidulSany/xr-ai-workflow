@@ -14,8 +14,8 @@ const App = () => {
       <SessionProvider>
         <Header />
         <Routes>
-          <Route path="/" element={<CourseList />} />
-          <Route path="/course/:id" element={<CourseDetails />} />
+          <Route path="/" element={<ProjectList />} />
+          <Route path="/project/:id" element={<CourseDetails />} />
           <Route path="/profile" element={<SubscribedCourses />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
