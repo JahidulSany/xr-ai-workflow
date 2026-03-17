@@ -15,6 +15,7 @@ apiAxios.interceptors.request.use((config) => {
 
 const shouldUseMock = import.meta.env.REACT_APP_USE_MOCK_API === 'true';
 
+// eslint-disable-next-line no-undef
 const api = shouldUseMock ? fakeAxios : apiAxios;
 
 //export default mockAxios

@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Introduction to Programming",
+    "description": "Learn the basics of programming using Python.",
+    "filename": ""
+  },
+  {
+    "id": 2,
+    "name": "Data Structures",
+    "description": "Explore foundational data structures like arrays, linked lists, and trees.",
+    "filename": ""
+  },
+  {
+    "id": 3,
+    "name": "Web Development Basics",
+    "description": "Learn how to build basic websites with HTML, CSS, and JavaScript.",
+    "filename": ""
+  },
+  {
+    "id": 4,
+    "name": "Advanced JavaScript",
+    "description": "Deep dive into modern JavaScript features and frameworks.",
+    "filename": ""
+  },
+  {
+    "id": 5,
+    "name": "Database Management",
+    "description": "Learn SQL and how to manage relational databases.",
+    "filename": ""
+  },
+  {
+    "id": 6,
+    "name": "Machine Learning Basics",
+    "description": "Introduction to machine learning concepts and techniques.",
+    "filename": ""
+  },
+  {
+    "id": 7,
+    "name": "Cybersecurity Fundamentals",
+    "description": "Learn how to protect systems and networks from cyber threats.",
+    "filename": ""
+  },
+  {
+    "id": 8,
+    "name": "Mobile App Development",
+    "description": "Learn how to build mobile apps using Flutter.",
+    "filename": ""
+  },
+  {
+    "id": 9,
+    "name": "Cloud Computing Essentials",
+    "description": "Understand the basics of cloud services and architecture.",
+    "filename": ""
+  },
+  {
+    "id": 10,
+    "name": "DevOps Practices",
+    "description": "Learn about CI/CD pipelines and containerization.",
+    "filename": ""
+  }
+]
