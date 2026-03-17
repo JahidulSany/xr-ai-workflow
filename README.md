@@ -1,6 +1,6 @@
-# LMS3000
+# XR AI Workflow
 
-LMS3000 is a modern Learning Management System built with **React** for the frontend and a **Sequelize/Node/MySQL** backend. This application provides a robust platform for managing courses, students, and instructors efficiently.
+XR AI Workflow is a modern Project Management Tool built with **React** for the frontend and a **Sequelize/Node/MySQL** backend. This application provides a robust platform for managing XR types, students, and instructors efficiently.
 
 ## Features
 
@@ -17,8 +17,8 @@ Follow these steps to install and set up LMS3000 locally:
 ### 1. Clone the Repository
 
 ```sh
-git clone https://github.com/Step8Up-SBC/lms-3000.git
-cd LMS3000
+git clone https://github.com/JahidulSany/xr-ai-workflow.git
+cd xr-ai-workflow
 ```
 
 ### 2. Create the Database
@@ -68,8 +68,8 @@ The application should now be running locally.
 
 ## Usage
 
-- Open your browser and navigate to `http://localhost:5173` to access the LMS3000 application.
-- Explore features such as course management, student enrollment, and instructor assignments.
+- Open your browser and navigate to `http://localhost:5173` to access the xr-ai-workflow application.
+- Explore features such as project management.
 - The Sequelize/NodeJS backend can be accessed via `http://localhost:3001`
 
 ## Contributing
@@ -82,4 +82,4 @@ This project is licensed under the **MIT License**.
 
 ---
 
-Happy Learning! 🎓🚀
+⭐ If you like this project, consider giving it a star on GitHub!
