@@ -22,12 +22,11 @@ const Header = () => {
 
   return (
     <header>
-      <h1>LMS 3000</h1>
+      <h1>XR AI Workflow Tool</h1>
       <nav>
-        <Link to="/">All Courses</Link>
         {token ? (
           <>
-            <Link to="/profile">{wordCase(user.username)}'s Courses</Link>
+            <Link to="/profile">{wordCase(user.username)}&apos;s Courses</Link>
             <button onClick={handleLogout}>Logout</button>
           </>
         ) : (
