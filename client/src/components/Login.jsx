@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { useSession } from '../contexts/SessionContext';
 
 const defaultUser = {
-  email: 'jason@fl1.digital',
-  password: 'Letmein123!',
+  email: '',
+  password: '',
 };
 
 const Login = () => {
