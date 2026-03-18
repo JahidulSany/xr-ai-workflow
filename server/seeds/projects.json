@@ -1,62 +1,92 @@
 [
   {
-    "id": 1,
-    "name": "Introduction to Programming",
-    "description": "Learn the basics of programming using Python.",
-    "filename": ""
+    "name": "Museum AR Guide",
+    "description": "An AR app that lets museum visitors scan exhibits and view digital overlays.",
+    "filename": "museum-ar-guide.pdf",
+    "userId": 1
   },
   {
-    "id": 2,
-    "name": "Data Structures",
-    "description": "Explore foundational data structures like arrays, linked lists, and trees.",
-    "filename": ""
+    "name": "VR Safety Training",
+    "description": "A VR project for workplace safety simulation and training.",
+    "filename": "vr-safety-training.pdf",
+    "userId": 1
   },
   {
-    "id": 3,
-    "name": "Web Development Basics",
-    "description": "Learn how to build basic websites with HTML, CSS, and JavaScript.",
-    "filename": ""
+    "name": "MR Design Review",
+    "description": "A mixed reality app for reviewing 3D product designs.",
+    "filename": "mr-design-review.pdf",
+    "userId": 2
   },
   {
-    "id": 4,
-    "name": "Advanced JavaScript",
-    "description": "Deep dive into modern JavaScript features and frameworks.",
-    "filename": ""
+    "name": "AR Retail Try-On",
+    "description": "An AR app that allows users to try on clothes virtually using their mobile device.",
+    "filename": "ar-retail-tryon.pdf",
+    "userId": 1
   },
   {
-    "id": 5,
-    "name": "Database Management",
-    "description": "Learn SQL and how to manage relational databases.",
-    "filename": ""
+    "name": "VR Classroom Simulation",
+    "description": "A VR environment for immersive learning experiences in education.",
+    "filename": "vr-classroom-simulation.pdf",
+    "userId": 2
   },
   {
-    "id": 6,
-    "name": "Machine Learning Basics",
-    "description": "Introduction to machine learning concepts and techniques.",
-    "filename": ""
+    "name": "AR Navigation Assistant",
+    "description": "An AR navigation app that overlays directions in real-world environments.",
+    "filename": "ar-navigation-assistant.pdf",
+    "userId": 1
   },
   {
-    "id": 7,
-    "name": "Cybersecurity Fundamentals",
-    "description": "Learn how to protect systems and networks from cyber threats.",
-    "filename": ""
+    "name": "MR Architecture Visualizer",
+    "description": "A mixed reality tool to visualize architectural designs in real space.",
+    "filename": "mr-architecture-visualizer.pdf",
+    "userId": 2
   },
   {
-    "id": 8,
-    "name": "Mobile App Development",
-    "description": "Learn how to build mobile apps using Flutter.",
-    "filename": ""
+    "name": "VR Fitness Experience",
+    "description": "A VR-based fitness application with interactive workouts and tracking.",
+    "filename": "vr-fitness-experience.pdf",
+    "userId": 1
   },
   {
-    "id": 9,
-    "name": "Cloud Computing Essentials",
-    "description": "Understand the basics of cloud services and architecture.",
-    "filename": ""
+    "name": "AR Art Exhibition",
+    "description": "An AR platform for showcasing digital art in physical gallery spaces.",
+    "filename": "ar-art-exhibition.pdf",
+    "userId": 2
   },
   {
-    "id": 10,
-    "name": "DevOps Practices",
-    "description": "Learn about CI/CD pipelines and containerization.",
-    "filename": ""
+    "name": "VR Game Prototype",
+    "description": "A prototype VR game with interactive storytelling and immersive gameplay.",
+    "filename": "vr-game-prototype.pdf",
+    "userId": 1
+  },
+  {
+    "name": "AR Maintenance Guide",
+    "description": "An AR application to assist technicians with equipment maintenance instructions.",
+    "filename": "ar-maintenance-guide.pdf",
+    "userId": 2
+  },
+  {
+    "name": "MR Medical Training",
+    "description": "A mixed reality training tool for medical students and professionals.",
+    "filename": "mr-medical-training.pdf",
+    "userId": 1
+  },
+  {
+    "name": "VR Tourism Experience",
+    "description": "A VR app that allows users to explore tourist destinations virtually.",
+    "filename": "vr-tourism-experience.pdf",
+    "userId": 2
+  },
+  {
+    "name": "AR Product Visualizer",
+    "description": "An AR tool to visualize products in real environments before purchase.",
+    "filename": "ar-product-visualizer.pdf",
+    "userId": 1
+  },
+  {
+    "name": "VR Emergency Response Training",
+    "description": "A VR simulation for training emergency response teams in crisis scenarios.",
+    "filename": "vr-emergency-response.pdf",
+    "userId": 2
   }
 ]

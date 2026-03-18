@@ -1,6 +1,9 @@
 # XR AI Workflow
 
-XR AI Workflow is a modern Project Management Tool built with **React** for the frontend and a **Sequelize/Node/MySQL** backend. This application provides a robust platform for managing XR types, students, and instructors efficiently.
+XR AI Workflow is a modern Project Management Tool built with **React** for the frontend and a **Sequelize/Node/MySQL** backend. 
+
+The application uses AI to analyze user project input and generate an enhanced XR project brief containing a summary, workflow recommendations, suggested tools, and next steps, which is then exported as a PDF and stored on the user’s profile page.
+
 
 ## Features
 
@@ -69,12 +72,12 @@ The application should now be running locally.
 ## Usage
 
 - Open your browser and navigate to `http://localhost:5173` to access the xr-ai-workflow application.
-- Explore features such as project management.
+- Explore features such as project wizard, profile page, PDF generator, etc.
 - The Sequelize/NodeJS backend can be accessed via `http://localhost:3001`
 
 ## Contributing
 
-Feel free to submit issues and pull requests to improve LMS3000. Contributions are welcome!
+Feel free to submit issues and pull requests to improve XR AI Workflow. Contributions are welcome!
 
 ## License
 
