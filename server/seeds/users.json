@@ -1,247 +1,247 @@
 [
     {
       "username": "techguru01",
-      "email": "techguru01@example.com",
+      "email": "techguru01@gmail.com",
       "password": "password123"
     },
     {
       "username": "coder123",
-      "email": "coder123@example.com",
+      "email": "coder123@gmail.com",
       "password": "securePass99"
     },
     {
       "username": "devmaster",
-      "email": "devmaster@example.com",
+      "email": "devmaster@gmail.com",
       "password": "codeMaster88"
     },
     {
       "username": "frontendpro",
-      "email": "frontendpro@example.com",
+      "email": "frontendpro@gmail.com",
       "password": "frontendDev!"
     },
     {
       "username": "backendboss",
-      "email": "backendboss@example.com",
+      "email": "backendboss@gmail.com",
       "password": "secureBackend1"
     },
     {
       "username": "datascientist99",
-      "email": "datascientist99@example.com",
+      "email": "datascientist99@gmail.com",
       "password": "dataScience42"
     },
     {
       "username": "machinelearner",
-      "email": "machinelearner@example.com",
+      "email": "machinelearner@gmail.com",
       "password": "mlAIpower12"
     },
     {
       "username": "cloudninja",
-      "email": "cloudninja@example.com",
+      "email": "cloudninja@gmail.com",
       "password": "awsAzureGCP"
     },
     {
       "username": "ethicalhacker",
-      "email": "ethicalhacker@example.com",
+      "email": "ethicalhacker@gmail.com",
       "password": "hackTheWorld!"
     },
     {
       "username": "cyberexpert",
-      "email": "cyberexpert@example.com",
+      "email": "cyberexpert@gmail.com",
       "password": "cyberSecure88"
     },
     {
       "username": "fullstackhero",
-      "email": "fullstackhero@example.com",
+      "email": "fullstackhero@gmail.com",
       "password": "fullStack99"
     },
     {
       "username": "devopsengineer",
-      "email": "devopsengineer@example.com",
+      "email": "devopsengineer@gmail.com",
       "password": "ciCdPipeline!"
     },
     {
       "username": "bigdatafan",
-      "email": "bigdatafan@example.com",
+      "email": "bigdatafan@gmail.com",
       "password": "bigDataRocks"
     },
     {
       "username": "uiuxmaster",
-      "email": "uiuxmaster@example.com",
+      "email": "uiuxmaster@gmail.com",
       "password": "designLover77"
     },
     {
       "username": "blockchainwizard",
-      "email": "blockchainwizard@example.com",
+      "email": "blockchainwizard@gmail.com",
       "password": "cryptoKing123"
     },
     {
       "username": "aiwhiz",
-      "email": "aiwhiz@example.com",
+      "email": "aiwhiz@gmail.com",
       "password": "deepLearning9"
     },
     {
       "username": "sqlguru",
-      "email": "sqlguru@example.com",
+      "email": "sqlguru@gmail.com",
       "password": "databaseMaster!"
     },
     {
       "username": "iotdeveloper",
-      "email": "iotdeveloper@example.com",
+      "email": "iotdeveloper@gmail.com",
       "password": "smartDevices42"
     },
     {
       "username": "embeddedpro",
-      "email": "embeddedpro@example.com",
+      "email": "embeddedpro@gmail.com",
       "password": "embeddedSys77"
     },
     {
       "username": "gamedevrock",
-      "email": "gamedevrock@example.com",
+      "email": "gamedevrock@gmail.com",
       "password": "unityUnreal22"
     },
     {
       "username": "networkadmin",
-      "email": "networkadmin@example.com",
+      "email": "networkadmin@gmail.com",
       "password": "routerSwitch88"
     },
     {
       "username": "securitychamp",
-      "email": "securitychamp@example.com",
+      "email": "securitychamp@gmail.com",
       "password": "firewallSecure!"
     },
     {
       "username": "datasensei",
-      "email": "datasensei@example.com",
+      "email": "datasensei@gmail.com",
       "password": "analyticsPro99"
     },
     {
       "username": "cloudarchitect",
-      "email": "cloudarchitect@example.com",
+      "email": "cloudarchitect@gmail.com",
       "password": "AWSarchitect88"
     },
     {
       "username": "pythonlover",
-      "email": "pythonlover@example.com",
+      "email": "pythonlover@gmail.com",
       "password": "snakeCode101"
     },
     {
       "username": "javaprogrammer",
-      "email": "javaprogrammer@example.com",
+      "email": "javaprogrammer@gmail.com",
       "password": "JavaRocks999"
     },
     {
       "username": "javascriptninja",
-      "email": "javascriptninja@example.com",
+      "email": "javascriptninja@gmail.com",
       "password": "jsMaster007"
     },
     {
       "username": "rustacean",
-      "email": "rustacean@example.com",
+      "email": "rustacean@gmail.com",
       "password": "rustSecureDev"
     },
     {
       "username": "devtester",
-      "email": "devtester@example.com",
+      "email": "devtester@gmail.com",
       "password": "testingQA123"
     },
     {
       "username": "automator",
-      "email": "automator@example.com",
+      "email": "automator@gmail.com",
       "password": "seleniumPyTest"
     },
     {
       "username": "arvrengineer",
-      "email": "arvrengineer@example.com",
+      "email": "arvrengineer@gmail.com",
       "password": "virtualReality1"
     },
     {
       "username": "iosdev",
-      "email": "iosdev@example.com",
+      "email": "iosdev@gmail.com",
       "password": "swiftObjC99"
     },
     {
       "username": "androidguru",
-      "email": "androidguru@example.com",
+      "email": "androidguru@gmail.com",
       "password": "kotlinAndroid1"
     },
     {
       "username": "ethicalpen",
-      "email": "ethicalpen@example.com",
+      "email": "ethicalpen@gmail.com",
       "password": "pentestSecure!"
     },
     {
       "username": "cloudsysadmin",
-      "email": "cloudsysadmin@example.com",
+      "email": "cloudsysadmin@gmail.com",
       "password": "LinuxAWSadmin"
     },
     {
       "username": "devopscloud",
-      "email": "devopscloud@example.com",
+      "email": "devopscloud@gmail.com",
       "password": "DockerK8s99"
     },
     {
       "username": "mlopsengineer",
-      "email": "mlopsengineer@example.com",
+      "email": "mlopsengineer@gmail.com",
       "password": "mlOpsPipeline"
     },
     {
       "username": "backendpro",
-      "email": "backendpro@example.com",
+      "email": "backendpro@gmail.com",
       "password": "nodeDjango99"
     },
     {
       "username": "frontendwiz",
-      "email": "frontendwiz@example.com",
+      "email": "frontendwiz@gmail.com",
       "password": "reactVueMaster"
     },
     {
       "username": "cryptodev",
-      "email": "cryptodev@example.com",
+      "email": "cryptodev@gmail.com",
       "password": "secureHashing77"
     },
     {
       "username": "webdesigner",
-      "email": "webdesigner@example.com",
+      "email": "webdesigner@gmail.com",
       "password": "cssHtmlFigma"
     },
     {
       "username": "agilecoach",
-      "email": "agilecoach@example.com",
+      "email": "agilecoach@gmail.com",
       "password": "scrumMaster99"
     },
     {
       "username": "roboticsdev",
-      "email": "roboticsdev@example.com",
+      "email": "roboticsdev@gmail.com",
       "password": "automationBot99"
     },
     {
       "username": "fullstackdev",
-      "email": "fullstackdev@example.com",
+      "email": "fullstackdev@gmail.com",
       "password": "mernStackDev"
     },
     {
       "username": "techwriter",
-      "email": "techwriter@example.com",
+      "email": "techwriter@gmail.com",
       "password": "docsAPIs999"
     },
     {
       "username": "devmentor",
-      "email": "devmentor@example.com",
+      "email": "devmentor@gmail.com",
       "password": "codeCoach123"
     },
     {
       "username": "scrumexpert",
-      "email": "scrumexpert@example.com",
+      "email": "scrumexpert@gmail.com",
       "password": "agileProcess7"
     },
     {
       "username": "datastructures",
-      "email": "datastructures@example.com",
+      "email": "datastructures@gmail.com",
       "password": "algorithms101"
     },
     {
       "username": "softwareengineer",
-      "email": "softwareengineer@example.com",
+      "email": "softwareengineer@gmail.com",
       "password": "softwareDev88"
     }
   ]

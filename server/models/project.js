@@ -15,7 +15,10 @@ Project.init(
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      foreignKey: true,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
     },
     name: {
       type: DataTypes.STRING,
@@ -29,9 +32,6 @@ Project.init(
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
-      validate: {
-        isEmail: true,
-      },
     },
     createdOn: {
       type: DataTypes.DATE,

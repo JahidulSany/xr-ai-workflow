@@ -26,6 +26,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Login route
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -99,7 +100,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// UDPATE the User record
+// UPDATE the User record
 router.put('/:id', async (req, res) => {
   try {
     const userData = await User.update(req.body, {
@@ -119,6 +120,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+// Logout route
 router.post('/logout', (req, res) => {
   res.status(204).end();
 });

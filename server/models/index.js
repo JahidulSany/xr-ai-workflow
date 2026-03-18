@@ -8,7 +8,7 @@ User.hasMany(Project, {
 });
 
 Project.belongsTo(User, {
-  foreignKey: 'id',
+  foreignKey: 'userId',
   as: 'user',
 });
 
