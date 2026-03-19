@@ -26,7 +26,7 @@ const Header = () => {
       <nav>
         {token ? (
           <>
-            <Link to="/profile">{wordCase(user.username)}&apos;s Courses</Link>
+            <Link to="/profile">{wordCase(user.username)}&apos;s Projects</Link>
             <button onClick={handleLogout}>Logout</button>
           </>
         ) : (

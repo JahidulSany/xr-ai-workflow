@@ -1,10 +1,9 @@
 const jwt = require('jsonwebtoken');
 
-const secret = 'SecretSecretSecretShhhhhh';
+const secret = process.env.SECRET_KEY;
 const expiration = '2h';
 
 const authMiddleware = (req, res, next) => {
-
   let token = req.body.token || req.query.token || req.headers.authorization;
   console.log('token: ' + token);
 
@@ -27,17 +26,16 @@ const authMiddleware = (req, res, next) => {
   }
 
   return req;
-}
+};
 
 const signToken = (user) => {
-
   const payload = {
     id: user.id,
+    username: user.username,
     email: user.email,
-    first_name: user.first_name,
-    last_name: user.last_name,
+    password: user.password,
   };
   return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
-}
+};
 
 module.exports = { authMiddleware, signToken };
