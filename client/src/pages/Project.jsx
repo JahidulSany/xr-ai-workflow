@@ -51,7 +51,7 @@ const Project = () => {
             <input
               type="radio"
               name="xrType"
-              value={xrType}
+              value="VR"
               checked={xrType === 'VR'}
               onChange={(e) => setXrType(e.target.value)}
             />
