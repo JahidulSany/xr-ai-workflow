@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
 // Login route
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findByPk({ where: { email: req.body.email } });
+    const userData = await User.findOne({ where: { email: req.body.email } });
     if (!userData) {
       res
         .status(400)
@@ -54,7 +54,6 @@ router.post('/login', async (req, res) => {
   }
 });
 
-
 // Get the all users record
 router.get('/', authMiddleware, async (req, res) => {
   try {
@@ -66,7 +65,7 @@ router.get('/', authMiddleware, async (req, res) => {
 });
 
 // GET the User record
-router.get('/:id', async (req, res) => {
+router.get('/:id', authMiddleware, async (req, res) => {
   console.log('looking for user', req.params.id);
   try {
     const userData = await User.findByPk(req.params.id);
@@ -83,7 +82,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // UPDATE the User record
-router.put('/:id', async (req, res) => {
+router.put('/:id', authMiddleware, async (req, res) => {
   try {
     const userData = await User.update(req.body, {
       where: {
