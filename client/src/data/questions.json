@@ -1,0 +1,91 @@
+[
+{
+  "key": "xr-type",
+  "question": "What is XR (Extended Reality)? Extended Reality (XR) is an umbrella term that includes all immersive technologies that blend or replace the physical world with digital content. It covers Virtual Reality (VR), Augmented Reality (AR), and Mixed Reality (MR), each offering different levels of immersion and interaction. In the context of this tool, XR defines the overall direction of the project, influencing every decision that follows, from how content is created to how it is experienced and delivered to users.",
+  "answers": [
+    {
+      "title": "VR Virtual Reality",
+      "description": "VR is a fully immersive experience where users are placed inside a completely digital environment, typically using a headset. It is ideal for simulations, training, gaming, and storytelling where full control over the environment is required. In the workflow, choosing VR means prioritising real-time engines, 3D environments, and headset-based interaction, often requiring more processing power and structured development.",
+      "image": "../src/assets/images/VR.jpg"
+    },
+    {
+      "title": "AR Augmented Reality",
+      "description": "AR overlays digital content onto the real world, usually through a smartphone or tablet. It is widely used in retail, education, and marketing to enhance real-world environments with interactive elements. In the workflow, AR influences decisions toward mobile-friendly tools, lightweight assets, and real-world interaction, making it more accessible and cost-effective for many projects.",
+      "image": "../assets/images/AR.jpg"
+    },
+    {
+      "title": "MR Mixed Reality",
+      "description": "MR blends digital and physical environments so that virtual objects can interact with the real world in real time. Often experienced through advanced headsets, MR is used in fields such as architecture, engineering, and collaborative design. In the workflow, MR requires consideration of spatial mapping, advanced hardware, and interactive systems, making it more complex but highly immersive.",
+      "image": "/assets/images/MR.jpg"
+    }
+  ]
+},
+{
+  "key": "object-creation",
+  "question": "Choose from the following ways to create an object for your XR project workflow.",
+  "answers": [
+    {
+      "title": "3D Scan",
+      "description": "3D scanning involves capturing real-world objects or environments and converting them into digital 3D models using cameras or specialised sensors. This method is particularly useful for creating realistic assets quickly, such as museum artefacts or real locations. In the workflow, it allows users to bring real-world content into XR experiences, reducing modelling time but often requiring optimisation in later stages.",
+      "image": "/assets/images/3dscan.jpg"
+    },
+    {
+      "title": "3D Model",
+      "description": "3D modelling is the process of creating digital objects from scratch using specialised software. It provides full creative control over design, style, and detail, making it ideal for custom experiences or fictional environments. In the workflow, this option supports highly tailored content creation, but may require more time, skill, and resources compared to scanning or using existing assets.",
+      "image": "/assets/images/3dmodel.jpg"
+    },
+    {
+      "title": "Asset Library",
+      "description": "Asset libraries are online collections of pre-made 3D models, textures, and animations that can be downloaded and used in projects. They are useful for speeding up development and reducing costs, especially for prototypes or early-stage projects. In the workflow, this option allows users to quickly assemble experiences without building everything from scratch, making it ideal for beginners or rapid development.",
+      "image": "/assets/images/3dobjectassetlibrary.jpg"
+    }
+  ]
+},
+{
+  "key": "environment-creation",
+  "question": "Choose from the following ways to create an environment for your XR project workflow.",
+  "answers": [
+    {
+      "title": "3D Scan",
+      "description": "Using 3D scanning for environments involves capturing entire spaces, such as rooms or outdoor locations, and converting them into immersive digital environments. This is particularly useful for heritage, architecture, and location-based experiences. In the workflow, it enables real-world environments to be recreated digitally, but may require optimisation for performance.",
+      "image": "/assets/images/3dscanenvironment.jpg"
+    },
+    {
+      "title": "3D Model",
+      "description": "Creating an environment through 3D modelling allows designers to build fully customised virtual worlds. This approach is common in gaming, simulations, and storytelling where realism or stylisation is important. In the workflow, it provides maximum creative control, but typically requires more time and technical skill.",
+      "image": "/assets/images/3dmodelenvironment.jpg"
+    },
+    {
+      "title": "Asset Library",
+      "description": "Using an asset library for environments involves assembling scenes from pre-made components such as buildings, landscapes, or interiors. This is a fast and cost-effective way to build environments, especially for prototypes or smaller projects. In the workflow, it supports rapid environment creation with minimal effort, though it may limit uniqueness.",
+      "image": "/assets/images/3denvironmentassetlibrary.jpg"
+    }
+  ]
+},
+{
+  "key": "platform-creation",
+  "question": "Choose from the following platforms as a way to present your XR project for your XR project workflow.",
+  "answers": [
+    {
+      "title": "Mobile",
+      "description": "A mobile app platform delivers XR experiences through smartphones or tablets. This is the most accessible option for users and is widely used for AR applications in retail, education, and marketing. In the workflow, choosing mobile prioritises ease of access, lower hardware requirements, and broader audience reach.",
+      "image": "/assets/images/XRmobile.jpg"
+    },
+    {
+      "title": "Web browser",
+      "description": "A web browser platform allows XR experiences to run directly in a browser without requiring downloads. This is often achieved through WebXR technologies. In the workflow, this option supports quick distribution and accessibility, making it ideal for sharing prototypes or public-facing experiences.",
+      "image": "/assets/images/XRweb.jpg"
+    },
+    {
+      "title": "Headset",
+      "description": "A headset platform delivers immersive XR experiences through dedicated devices such as VR or MR headsets. This allows for deeper interaction and higher levels of immersion. In the workflow, this option requires more advanced development, hardware consideration, and optimisation, but enables the most immersive experiences.",
+      "image": "/assets/images/XRheadset.jpg"
+    },
+    {
+      "title": "Games console",
+      "description": "A games console platform delivers XR experiences through console systems, often combined with VR hardware. This is commonly used for gaming and entertainment experiences. In the workflow, this option supports high-performance, polished experiences, but may involve stricter development requirements and platform limitations.",
+      "image": "/assets/images/XRgamesconsole.jpg"
+    }
+  ]
+}
+]

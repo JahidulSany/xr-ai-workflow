@@ -8,11 +8,14 @@ const { Project, User } = require('../models/index');
 // Route to add a new Project
 router.post('/', authMiddleware, async (req, res) => {
   try {
-    const { name, description, filename } = req.body;
+    const { name, xrType, objectCreation, environmentMethod, platform } =
+      req.body;
     const post = await Project.create({
       name,
-      description,
-      filename,
+      xrType,
+      objectCreation,
+      environmentMethod,
+      platform,
       userId: req.user.id,
     });
 
