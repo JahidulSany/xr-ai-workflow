@@ -15,11 +15,11 @@ const App = () => {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/project" element={<Project />} />
-          <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="*" element={<h1>Not Found</h1>} />
+          <Route path="/project" element={<Project />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="*" element={<h1>404, Not Found</h1>} />
         </Routes>
       </SessionProvider>
     </div>
