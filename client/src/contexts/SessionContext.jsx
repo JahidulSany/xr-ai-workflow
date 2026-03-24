@@ -5,6 +5,7 @@ export const SessionContext = createContext();
 
 export function SessionProvider({ children }) {
   const [user, setUser] = useState(null);
+  const [projectId, setProjectId] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -39,11 +40,14 @@ export function SessionProvider({ children }) {
     } finally {
       localStorage.removeItem('authToken');
       setUser(null);
+      setProjectId(null);
     }
   };
 
   return (
-    <SessionContext.Provider value={{ user, setUser, loading, logout }}>
+    <SessionContext.Provider
+      value={{ user, setUser, projectId, setProjectId, loading, logout }}
+    >
       {children}
     </SessionContext.Provider>
   );
