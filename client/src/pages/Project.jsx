@@ -21,7 +21,6 @@ const Project = () => {
       platform,
     };
 
-    // Send the data to the backend or process it as needed
     fetch('/api/projects', {
       method: 'POST',
       headers: {

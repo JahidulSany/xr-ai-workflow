@@ -28,7 +28,7 @@ Project.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    objectCreation: {
+    objectMethod: {
       type: DataTypes.STRING,
       allowNull: false,
     },
