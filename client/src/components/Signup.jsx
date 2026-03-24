@@ -9,7 +9,7 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
 
-  const { setUser } = useSession();
+  const { setUser, setProjectId } = useSession();
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -47,6 +47,7 @@ const Signup = () => {
 
       localStorage.setItem('authToken', data.token);
       setUser(data.user);
+      setProjectId(null);
 
       navigate('/profile');
     } catch (error) {

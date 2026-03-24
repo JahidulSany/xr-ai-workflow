@@ -1,19 +1,23 @@
-const Answer = ({ a, index, onSetAnswer }) => {
+const Answer = ({ name, a, index, onSetAnswer }) => {
+  const id = `${name}-${index}`;
+  const src = a.image && a.image.startsWith('/') ? a.image : a.image;
+
   return (
-    <div key={index}>
+    <div className="answer-row">
       <input
         type="radio"
-        id={a.title}
-        name="answer"
+        id={id}
+        name={name}
         value={a.title}
         onChange={() => onSetAnswer(a.title)}
       />
-
-      {a.title}
-      {a.description && <p>{a.description}</p>}
-      {a.image && (
-        <img src={a.image} alt={a.title} style={{ width: '100px' }} />
-      )}
+      <label htmlFor={id} className="answer-label">
+        <span className="answer-title">{a.title}</span>
+        {a.description && <p className="answer-desc">{a.description}</p>}
+        {src && (
+          <img src={src} alt="" className="answer-thumb" />
+        )}
+      </label>
     </div>
   );
 };

@@ -14,16 +14,20 @@ const Login = () => {
   const [password, setPassword] = useState(defaultUser.password);
   const navigate = useNavigate();
 
-  const { setUser } = useSession();
+  const { setUser, setProjectId } = useSession();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post('/api/users/login', { email: email, password: password });
+      const response = await api.post('/api/users/login', {
+        email: email,
+        password: password,
+      });
       const data = response.data;
 
       localStorage.setItem('authToken', data.token);
       setUser(data.user);
+      setProjectId(null);
 
       navigate('/profile');
     } catch (error) {
@@ -48,12 +52,12 @@ const Login = () => {
         onChange={(e) => setPassword(e.target.value)}
         required
       />
-      <p>Need an account? <Link to="/signup">Create one</Link></p>
+      <p>
+        Need an account? <Link to="/signup">Create one</Link>
+      </p>
       <button type="submit">Login</button>
     </form>
   );
 };
 
 export default Login;
-
-
