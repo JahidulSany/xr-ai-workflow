@@ -1,92 +1,72 @@
 [
   {
+    "id": 1,
     "name": "Museum AR Guide",
     "description": "An AR app that lets museum visitors scan exhibits and view digital overlays.",
-    "filename": "museum-ar-guide.pdf",
+    "filename": "1_1.pdf",
     "userId": 1
   },
   {
+    "id": 2,
     "name": "VR Safety Training",
     "description": "A VR project for workplace safety simulation and training.",
-    "filename": "vr-safety-training.pdf",
+    "filename": "1_2.pdf",
     "userId": 1
   },
   {
+    "id": 3,
     "name": "MR Design Review",
     "description": "A mixed reality app for reviewing 3D product designs.",
-    "filename": "mr-design-review.pdf",
+    "filename": "2_3.pdf",
     "userId": 2
   },
   {
+    "id": 4,
     "name": "AR Retail Try-On",
     "description": "An AR app that allows users to try on clothes virtually using their mobile device.",
-    "filename": "ar-retail-tryon.pdf",
+    "filename": "1_4.pdf",
     "userId": 1
   },
   {
+    "id": 5,
     "name": "VR Classroom Simulation",
     "description": "A VR environment for immersive learning experiences in education.",
-    "filename": "vr-classroom-simulation.pdf",
+    "filename": "2_5.pdf",
     "userId": 2
   },
   {
+    "id": 6,
     "name": "AR Navigation Assistant",
     "description": "An AR navigation app that overlays directions in real-world environments.",
-    "filename": "ar-navigation-assistant.pdf",
+    "filename": "1_6.pdf",
     "userId": 1
   },
   {
+    "id": 7,
     "name": "MR Architecture Visualizer",
     "description": "A mixed reality tool to visualize architectural designs in real space.",
-    "filename": "mr-architecture-visualizer.pdf",
+    "filename": "2_7.pdf",
     "userId": 2
   },
   {
+    "id": 8,
     "name": "VR Fitness Experience",
     "description": "A VR-based fitness application with interactive workouts and tracking.",
-    "filename": "vr-fitness-experience.pdf",
+    "filename": "1_8.pdf",
     "userId": 1
   },
   {
+    "id": 9,
     "name": "AR Art Exhibition",
     "description": "An AR platform for showcasing digital art in physical gallery spaces.",
-    "filename": "ar-art-exhibition.pdf",
+    "filename": "2_9.pdf",
     "userId": 2
   },
   {
+    "id": 10,
     "name": "VR Game Prototype",
     "description": "A prototype VR game with interactive storytelling and immersive gameplay.",
-    "filename": "vr-game-prototype.pdf",
+    "filename": "1_10.pdf",
     "userId": 1
-  },
-  {
-    "name": "AR Maintenance Guide",
-    "description": "An AR application to assist technicians with equipment maintenance instructions.",
-    "filename": "ar-maintenance-guide.pdf",
-    "userId": 2
-  },
-  {
-    "name": "MR Medical Training",
-    "description": "A mixed reality training tool for medical students and professionals.",
-    "filename": "mr-medical-training.pdf",
-    "userId": 1
-  },
-  {
-    "name": "VR Tourism Experience",
-    "description": "A VR app that allows users to explore tourist destinations virtually.",
-    "filename": "vr-tourism-experience.pdf",
-    "userId": 2
-  },
-  {
-    "name": "AR Product Visualizer",
-    "description": "An AR tool to visualize products in real environments before purchase.",
-    "filename": "ar-product-visualizer.pdf",
-    "userId": 1
-  },
-  {
-    "name": "VR Emergency Response Training",
-    "description": "A VR simulation for training emergency response teams in crisis scenarios.",
-    "filename": "vr-emergency-response.pdf",
-    "userId": 2
   }
 ]

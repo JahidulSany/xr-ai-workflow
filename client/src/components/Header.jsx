@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { useSession } from '../contexts/SessionContext';
 
-const Header = () => {
+const  Header = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem('authToken');
 

@@ -24,14 +24,21 @@ Project.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    filename: {
+    xrType: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
+    },
+    objectCreation: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    environmentMethod: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    platform: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     createdOn: {
       type: DataTypes.DATE,
