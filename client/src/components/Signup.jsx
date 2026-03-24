@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import api from '../api';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSession } from '../contexts/SessionContext';
 
 const Signup = () => {
@@ -16,37 +16,39 @@ const Signup = () => {
   const displayError = (message) => {
     setError(message);
     setTimeout(() => {
-        setError('');
+      setError('');
     }, 3000);
-};
+  };
 
   const validatePassword = () => {
     if (password !== password2) {
-        displayError('Passwords do not match');
-        return false;
+      displayError('Passwords do not match');
+      return false;
     }
     return true;
-    };
-
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // run any validation checks
     if (!validatePassword()) {
-        return;
+      return;
     }
 
     try {
-      const response = await api.post('/api/users', { username: userName, email: email, password: password, password2: password2 });
-      const data = response.data;
-      // Update the user in the context
-      setUser({
-        username: data.user.username,
-        id: data.user.id,
+      const response = await api.post('/api/users', {
+        username: userName,
+        email: email,
+        password: password,
+        password2: password2,
       });
+      const data = response.data;
 
-      navigate('/');
+      localStorage.setItem('authToken', data.token);
+      setUser(data.user);
+
+      navigate('/profile');
     } catch (error) {
       console.error('Signup failed', error);
     }
@@ -62,6 +64,7 @@ const Signup = () => {
         onChange={(e) => setUserName(e.target.value)}
         required
       />
+
       <input
         type="email"
         placeholder="Email"
@@ -69,6 +72,7 @@ const Signup = () => {
         onChange={(e) => setEmail(e.target.value)}
         required
       />
+
       <input
         type="password"
         placeholder="Password"
@@ -76,6 +80,7 @@ const Signup = () => {
         onChange={(e) => setPassword(e.target.value)}
         required
       />
+
       <input
         type="password"
         placeholder="Confirm Password"
@@ -83,7 +88,12 @@ const Signup = () => {
         onChange={(e) => setPassword2(e.target.value)}
         required
       />
+
       {error && <p>{error}</p>}
+
+      <p>
+        Already have an account? <Link to="/login">Login</Link>
+      </p>
       <button type="submit">Signup</button>
     </form>
   );
