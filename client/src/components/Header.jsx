@@ -1,32 +1,34 @@
 import { Link, useNavigate } from 'react-router-dom';
-
 import { useSession } from '../contexts/SessionContext';
 
-const  Header = () => {
+const Header = () => {
   const navigate = useNavigate();
-  const token = localStorage.getItem('authToken');
+  const { user, logout, loading } = useSession();
 
-  const { user } = useSession();
-
-  const handleLogout = () => {
-    localStorage.removeItem('authToken');
+  const handleLogout = async () => {
+    await logout();
     navigate('/login');
   };
 
   const wordCase = (word) => {
-    if (word === undefined) {
-      return '';
-    }
+    if (!word) return '';
     return word.charAt(0).toUpperCase() + word.slice(1);
   };
 
   return (
     <header>
-      <h1>XR AI Workflow Tool</h1>
+      <Link to={user ? '/profile' : '/'} className="brand-link">
+        <h1>XR AI Workflow Tool</h1>
+      </Link>
+
       <nav>
-        {token ? (
+        {loading ? null : user ? (
           <>
-            <Link to="/profile">{wordCase(user.username)}&apos;s Projects</Link>
+            <Link to="/">Home</Link>
+            <Link to="/project">Create Project</Link>
+            <Link to="/profile">
+              {wordCase(user.username)}&apos;s Projects
+            </Link>
             <button onClick={handleLogout}>Logout</button>
           </>
         ) : (

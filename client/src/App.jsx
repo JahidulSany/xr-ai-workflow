@@ -7,6 +7,7 @@ import { SessionProvider } from './contexts/SessionContext';
 import Project from './pages/Project';
 import Profile from './pages/Profile';
 import Home from './pages/Home';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {
   return (
@@ -15,10 +16,24 @@ const App = () => {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/project" element={<Project />} />
-          <Route path="/profile" element={<Profile />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          <Route
+            path="/project"
+            element={
+              <ProtectedRoute>
+                <Project />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
           <Route path="*" element={<h1>404, Not Found</h1>} />
         </Routes>
       </SessionProvider>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import api from '../api';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { useSession } from '../contexts/SessionContext';
 
@@ -22,16 +22,10 @@ const Login = () => {
       const response = await api.post('/api/users/login', { email: email, password: password });
       const data = response.data;
 
-    
-      // Update the user in the context
-      setUser({
-        username: data.user.username,
-        id: data.user.id,
-      });
-
-
       localStorage.setItem('authToken', data.token);
-      navigate('/');
+      setUser(data.user);
+
+      navigate('/profile');
     } catch (error) {
       console.error('Login failed', error);
     }
@@ -54,9 +48,12 @@ const Login = () => {
         onChange={(e) => setPassword(e.target.value)}
         required
       />
+      <p>Need an account? <Link to="/signup">Create one</Link></p>
       <button type="submit">Login</button>
     </form>
   );
 };
 
 export default Login;
+
+
