@@ -3,8 +3,8 @@ const path = require('path');
 const router = require('express').Router();
 const { authMiddleware } = require('../utils/auth');
 const { Project, User } = require('../models/index');
-const { buildSystemPrompt, buildUserPrompt } = require('../services/recommendationPrompts');
-const { generateWithOllama } = require('../services/ollamaRecommendation');
+const { buildPrompt } = require('../services/promptBuilder');
+const { chatgpt } = require('../services/chatgpt');
 const { writeRecommendationPdf } = require('../services/generateReportPdf');
 
 const UPLOAD_DIR = path.join(__dirname, '../uploads/reports');
@@ -18,12 +18,26 @@ function mapBodyName(body) {
   return raw && String(raw).trim() ? String(raw).trim() : null;
 }
 
+const createRecommendation = async (project) => {
+  const prompt = buildPrompt(project);
+  const structured = await chatgpt(prompt);
+
+  // convert structured to JSON
+  try {
+    return JSON.parse(structured.content);
+  } catch (error) {
+    console.error('Error parsing ChatGPT response as JSON:', error);
+    console.error('Original response content:', structured.content);
+    throw new Error('Invalid response format from recommendation engine');
+  }
+};
+
 router.post('/recommendation', authMiddleware, async (req, res) => {
   try {
+    
     ensureUploadDir();
 
     const {
-      selections,
       name,
       projectName,
       xrType,
@@ -32,27 +46,21 @@ router.post('/recommendation', authMiddleware, async (req, res) => {
       platform,
     } = req.body;
 
-    if (!Array.isArray(selections) || selections.length < 4) {
-      return res.status(400).json({
-        error:
-          'Expected selections array with entries for each questionnaire step.',
-      });
-    }
-
     const userId = req.user.id;
     const projectTitle =
       mapBodyName({ name, projectName }) ||
       `XR project ${new Date().toISOString().slice(0, 10)}`;
 
-    const project = await Project.create({
+    const projectData = {
       userId,
       name: projectTitle,
-      xrType: xrType || selections[0]?.title || '',
-      objectMethod: objectMethod || selections[1]?.title || '',
-      environmentMethod: environmentMethod || selections[2]?.title || '',
-      platform: platform || selections[3]?.title || '',
+      xrType,
+      objectMethod,
+      environmentMethod,
+      platform,
       filename: null,
-    });
+    };
+    const project = await Project.create(projectData);
 
     const filename = `${userId}-${project.id}.pdf`;
     const absolutePath = path.join(UPLOAD_DIR, filename);
@@ -60,7 +68,7 @@ router.post('/recommendation', authMiddleware, async (req, res) => {
     const systemPrompt = buildSystemPrompt();
     const userPrompt = buildUserPrompt(selections);
 
-    const structured = await generateWithOllama({ systemPrompt, userPrompt });
+    const structured = await chatgpt({ systemPrompt, userPrompt });
 
     await writeRecommendationPdf({
       outputPath: absolutePath,
@@ -91,12 +99,7 @@ router.post('/recommendation', authMiddleware, async (req, res) => {
 router.post('/', authMiddleware, async (req, res) => {
   try {
     const title = mapBodyName(req.body);
-    const {
-      xrType,
-      objectMethod,
-      environmentMethod,
-      platform,
-    } = req.body;
+    const { xrType, objectMethod, environmentMethod, platform } = req.body;
 
     if (!title || !xrType || !objectMethod || !environmentMethod || !platform) {
       return res.status(400).json({
@@ -115,7 +118,15 @@ router.post('/', authMiddleware, async (req, res) => {
       filename: null,
     });
 
-    res.status(201).json(post);
+    // pass the project details to the recommendation engine to generate a report
+    const recommendation = await createRecommendation({
+      xrType,
+      objectMethod,
+      environmentMethod,
+      platform,
+    });
+
+    res.status(201).json({ project: post, recommendation });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Error adding Project' });
@@ -158,7 +169,9 @@ router.get('/:id/pdf', authMiddleware, async (req, res) => {
 router.get('/:id', authMiddleware, async (req, res) => {
   try {
     const row = await Project.findByPk(req.params.id, {
-      include: [{ model: User, as: 'user', attributes: ['id', 'username', 'email'] }],
+      include: [
+        { model: User, as: 'user', attributes: ['id', 'username', 'email'] },
+      ],
     });
     if (!row || row.userId !== req.user.id) {
       return res.status(404).json({ message: 'Not found' });

@@ -49,7 +49,7 @@ const Signup = () => {
       setUser(data.user);
       setProjectId(null);
 
-      navigate('/profile');
+      navigate('/login');
     } catch (error) {
       console.error('Signup failed', error);
     }
