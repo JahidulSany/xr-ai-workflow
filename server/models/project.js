@@ -40,6 +40,11 @@ Project.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    filename: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      unique: true,
+    },
     createdOn: {
       type: DataTypes.DATE,
       allowNull: false,
