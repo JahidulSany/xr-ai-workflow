@@ -1,8 +1,13 @@
 // Import required packages
+require("dotenv").config();
+const fs = require("fs");
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 const cors = require("cors");
+
+const reportsDir = path.join(__dirname, "uploads/reports");
+fs.mkdirSync(reportsDir, { recursive: true });
 
 const sequelize = require("./config/connection");
 const routes = require("./routes");
