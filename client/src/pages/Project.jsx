@@ -116,18 +116,16 @@ const Project = () => {
   };
 
   return (
-    <div>
+    <div className="project-container">
       <div>
         <h2>AI XR Project Workflow</h2>
         <p>
-          Choose your XR modality, how you will create objects and environments,
-          and your target platform. Save the project, or run{' '}
-          <strong>Recommendation</strong> to generate an AI report (Ollama) and
-          PDF stored on your profile.
+          Choose your XR modality, how you will create objects and
+          environments...
         </p>
       </div>
 
-      <div>
+      <div className="project-input-group">
         <label htmlFor="projectName">Project Name:</label>
         <input
           type="text"
@@ -156,7 +154,7 @@ const Project = () => {
           onClick={handleSave}
           disabled={working || !canSave}
         >
-          Save project
+          {working ? 'Saving...' : 'Save project'}
         </button>
         <button
           type="button"
@@ -164,9 +162,10 @@ const Project = () => {
           onClick={handleRecommendation}
           disabled={working || !answersComplete}
         >
-          Recommendation
+          {working ? 'Processing...' : 'Recommendation'}
         </button>
       </div>
+
       {message ? <p className="form-success">{message}</p> : null}
       {error ? <p className="form-error">{error}</p> : null}
     </div>

@@ -1,11 +1,13 @@
-/* General Styles */
+/* --- Global Resets & Body --- */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f5f5f5;
+  color: #333;
 }
 
+/* --- Layout Components --- */
 header {
   background-color: #333;
   color: white;
@@ -46,7 +48,43 @@ header nav button:hover {
   text-decoration: underline;
 }
 
-/* Form Styles */
+.welcome-section {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 20px;
+  text-align: left;
+}
+
+.welcome-section h2 {
+  margin-top: 0;
+}
+
+.welcome-section p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.welcome-section button {
+  background: #000;
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.welcome-section button:hover {
+  background: #333;
+}
+
+.welcome-section button a {
+  display: inline-block;
+  padding: 8px 16px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* --- Form Styles --- */
 form {
   max-width: 400px;
   margin: 50px auto;
@@ -83,15 +121,6 @@ form button:hover {
   background-color: #555;
 }
 
-/* Course List Styles */
-div {
-  padding: 20px;
-}
-
-h2 {
-  margin-top: 0;
-}
-
 ul {
   list-style: none;
   padding: 0;
@@ -104,6 +133,8 @@ li {
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
+
+/* --- Card Component --- */
 .card {
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -131,6 +162,7 @@ li {
   font-size: 1rem;
   color: #666;
 }
+
 .card-options {
   display: flex;
   justify-content: center;
@@ -138,12 +170,7 @@ li {
   margin-top: 16px;
 }
 
-.course-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-}
-
+/* --- Reusable UI Elements --- */
 .button {
   display: inline-block;
   padding: 10px 20px;
@@ -168,8 +195,430 @@ li {
   margin-top: 5px;
 }
 
-.delegate-list {
+/* --- Profile Page Styles --- */
+.profile-page {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 20px;
+}
+
+.profile-page h2 {
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.profile-page h3 {
+  margin-top: 30px;
+  color: #444;
+}
+
+.project-report-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.project-report-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 15px 20px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.project-report-item div {
+  padding: 0;
+}
+
+.muted {
+  color: #777;
+}
+
+.small {
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+.form-error {
+  color: #d9534f;
+  background: #fdf7f7;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #d9534f;
+}
+
+.button-secondary {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.button-secondary:hover {
+  background-color: #5a6268;
+}
+
+.button-secondary:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* --- Project Creation Page --- */
+.project-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 20px;
+}
+
+/* Label and Input for Project Name */
+.project-input-group {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-input-group label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.project-input-group input {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  max-width: 400px;
+}
+
+.project-input-group input:focus {
+  outline: none;
+  border-color: #ffa500;
+  box-shadow: 0 0 0 2px rgba(255, 165, 0, 0.2);
+}
+
+/* Action Buttons Container */
+.project-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+/* Success Message */
+.form-success {
+  color: #28a745;
+  background: #f4fff6;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #28a745;
+  margin-top: 15px;
+}
+
+.form-error {
+  margin-top: 15px;
+}
+
+/* --- Answer / Question Component Styles --- */
+.answer-row {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+
+.answer-row input[type='radio'] {
+  margin-top: 15px;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.answer-label {
+  display: block;
+  flex: 1;
+  padding: 15px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.answer-label:hover {
+  border-color: #ffa500;
+  background-color: #fffaf0;
+}
+
+.answer-row input[type='radio']:checked + .answer-label {
+  border-color: #ffa500;
+  background-color: #fff9ed;
+  box-shadow: 0 0 0 1px #ffa500;
+}
+
+.answer-title {
+  display: block;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #222;
+  margin-bottom: 4px;
+}
+
+.answer-desc {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+}
+
+/* Thumbnail styling */
+.answer-thumb {
+  display: block;
+  max-width: 200px;
+  height: auto;
+  border-radius: 4px;
+  margin-top: 10px;
+  border: 1px solid #eee;
+}
+
+
+
+/* --- Dashboard Layout --- */
+.dashboard {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 20px;
+}
+
+.dashboard-section {
+  margin-bottom: 40px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* --- Dashboard Form & Questionnaire --- */
+.dashboard-form {
+  max-width: 100%; 
+  margin: 20px 0;
+  background: #fff;
+  padding: 30px;
+}
+
+.question-block {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.question-block legend {
+  font-weight: bold;
+  padding: 0 10px;
+  color: #555;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.question-text {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+/* Grid for the radio options */
+.answers {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.answer-option {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+}
+
+.answer-option:hover {
+  background-color: #f9f9f9;
+  border-color: #ccc;
+}
+
+/* Highlight selected answer */
+.answer-option:has(input:checked) {
+  border-color: #ffa500;
+  background-color: #fffaf0;
+  box-shadow: 0 0 0 1px #ffa500;
+}
+
+.answer-option input {
+  width: auto;
+  margin-bottom: 10px;
+}
+
+/* Optional Project Name label in Dashboard */
+.project-name-label {
+  display: block;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+.project-name-label input {
+  display: block;
+  margin-top: 8px;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* --- Status Messages --- */
+.success-msg {
+  color: #28a745;
+  background: #e8f5e9;
+  padding: 15px;
+  border-radius: 5px;
+  border-left: 5px solid #28a745;
+  margin-bottom: 20px;
+}
+
+.error-msg {
+  color: #d32f2f;
+  background: #ffebee;
+  padding: 15px;
+  border-radius: 5px;
+  border-left: 5px solid #d32f2f;
+  margin-top: 10px;
+}
+
+
+/* --- Header & Navigation --- */
+header {
+  background-color: #333;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.brand-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
   gap: 20px;
+}
+
+header nav a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+header nav a:hover {
+  color: #fff;
+  text-decoration: none; 
+}
+
+/* Logout button specific styling */
+header nav button {
+  background-color: #444; 
+  color: #ff6b6b;
+  border: 1px solid #555;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+header nav button:hover {
+  background-color: #ff6b6b;
+  color: #fff;
+  border-color: #ff6b6b;
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  header nav {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+
+/* --- Question Component Styles --- */
+.question-fieldset {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 30px;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+.question-fieldset:hover {
+  border-color: #ccc;
+}
+
+.question-legend {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #888;
+  padding: 0 10px;
+}
+
+.question-text {
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: #222;
+  margin: 0 0 20px 0;
+  line-height: 1.4;
+}
+
+.answers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.answer-row {
+  margin-bottom: 0;
+  display: flex;
 }
