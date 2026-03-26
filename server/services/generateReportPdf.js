@@ -2,133 +2,86 @@ const fs = require('fs');
 const path = require('path');
 const PDFDocument = require('pdfkit');
 
-function resolvePublicImage(relativePath) {
-  if (!relativePath || typeof relativePath !== 'string') {
-    return null;
-  }
-  const clean = relativePath.replace(/^\//, '');
-  const abs = path.join(__dirname, '../../client/public', clean);
-  return fs.existsSync(abs) ? abs : null;
+function addSectionTitle(doc, text) {
+  doc.moveDown(0.5);
+  doc.font('Helvetica-Bold').fontSize(14).text(text);
+  doc.moveDown(0.3);
+  doc.font('Helvetica').fontSize(11);
 }
 
-function writeRecommendationPdf({ outputPath, structured, meta }) {
+function safeText(value, fallback = 'N/A') {
+  if (value === undefined || value === null || value === '') return fallback;
+  return String(value);
+}
+
+async function writeRecommendationPdf({ outputPath, structured, meta = {} }) {
+  await fs.promises.mkdir(path.dirname(outputPath), { recursive: true });
+
   return new Promise((resolve, reject) => {
-    const doc = new PDFDocument({ margin: 50, size: 'A4' });
+    const doc = new PDFDocument({ margin: 50 });
     const stream = fs.createWriteStream(outputPath);
+
+    stream.on('finish', resolve);
+    stream.on('error', reject);
+    doc.on('error', reject);
+
     doc.pipe(stream);
 
-    const title = structured.title || 'XR project recommendation report';
-    doc.fontSize(20).text(title, { align: 'center' });
-    doc.moveDown();
-    doc
-      .fontSize(10)
-      .fillColor('#444444')
-      .text(
-        `User ID: ${users.userId}   Project ID: ${project.id}`,
-        { align: 'center' },
-      );
+    doc.font('Helvetica-Bold').fontSize(20).text(safeText(structured.title, 'XR Recommendation Report'));
+    doc.moveDown(0.5);
+
+    doc.font('Helvetica').fontSize(10).fillColor('#555555');
+    doc.text(`User ID: ${safeText(meta.userId)}`);
+    doc.text(`Project ID: ${safeText(meta.projectId)}`);
+    doc.text(`Generated: ${new Date().toLocaleString()}`);
     doc.fillColor('#000000');
-    doc.moveDown(2);
+    doc.moveDown();
 
-    const selections = Array.isArray(meta.selections) ? meta.selections : [];
-    const images = selections
-      .map((s) => s.image)
-      .filter(Boolean)
-      .slice(0, 4);
+    addSectionTitle(doc, 'Executive Summary');
+    doc.text(safeText(structured.executiveSummary, 'No executive summary provided.'));
 
-    if (images.length) {
-      doc.fontSize(12).text('Selections from your form', { underline: true });
-      doc.moveDown(0.5);
-      let y = doc.y;
-      images.forEach((imgPath) => {
-        const abs = resolvePublicImage(imgPath);
-        if (abs) {
-          try {
-            doc.image(abs, 50, y, { width: 130 });
-            y += 115;
-          } catch {
-            y += 10;
-          }
+    if (Array.isArray(meta.selections) && meta.selections.length > 0) {
+      addSectionTitle(doc, 'Project Inputs');
+      meta.selections.forEach((item) => {
+        doc.font('Helvetica-Bold').text(`${safeText(item.key)}: `, { continued: true });
+        doc.font('Helvetica').text(safeText(item.title));
+        if (item.description) {
+          doc.text(`- ${item.description}`);
         }
+        doc.moveDown(0.2);
       });
-      doc.y = y;
-      doc.moveDown();
     }
 
-    doc.fontSize(11).text('Executive summary', { underline: true });
-    doc.moveDown(0.5);
-    doc.fontSize(10).text(structured.executiveSummary || '', {
-      align: 'justify',
-    });
-    doc.moveDown();
-
-    const sections = Array.isArray(structured.sections)
-      ? structured.sections
-      : [];
-    sections.forEach((section) => {
-      doc.addPage();
-      doc.fontSize(14).text(section.heading || 'Section', { underline: true });
-      doc.moveDown(0.5);
-      doc.fontSize(10).text(section.body || '', { align: 'justify' });
-      doc.moveDown();
-
-      const tools = Array.isArray(section.tools) ? section.tools : [];
-      if (tools.length) {
-        doc.fontSize(11).text('Suggested tools', { underline: true });
-        doc.moveDown(0.5);
-        tools.forEach((t) => {
-          const name = t.name || 'Tool';
-          const url = t.url || '';
-          doc.fontSize(10).font('Helvetica-Bold').text(name);
+    if (Array.isArray(structured.sections) && structured.sections.length > 0) {
+      structured.sections.forEach((section) => {
+        addSectionTitle(doc, safeText(section.heading, 'Section'));
+        doc.text(safeText(section.body, 'No details provided.'));
+        if (Array.isArray(section.tools) && section.tools.length > 0) {
+          doc.moveDown(0.3);
+          doc.font('Helvetica-Bold').text('Suggested tools:');
           doc.font('Helvetica');
-          if (url) {
-            doc.fillColor('blue').text(url, { link: url, underline: true });
-            doc.fillColor('#000000');
-          }
-          if (t.role) {
-            doc.text(`Role: ${t.role}`);
-          }
-          if (t.pricingNotes) {
-            doc.text(`Pricing: ${t.pricingNotes}`);
-          }
-          doc.moveDown(0.5);
-        });
-      }
-    });
-
-    doc.addPage();
-    doc.fontSize(14).text('Cost estimate', { underline: true });
-    doc.moveDown();
-    const ce = structured.costEstimate || {};
-    doc.fontSize(10);
-    doc.text(`Currency: ${ce.currency || 'GBP'}`);
-    doc.text(`Low: ${ce.low || 'n/a'}`);
-    doc.text(`Mid: ${ce.mid || 'n/a'}`);
-    doc.text(`High: ${ce.high || 'n/a'}`);
-    doc.moveDown();
-    doc.text(`Assumptions: ${ce.assumptions || 'n/a'}`, { align: 'justify' });
-
-    const refs = Array.isArray(structured.references) ? structured.references : [];
-    if (refs.length) {
-      doc.moveDown(2);
-      doc.fontSize(14).text('Links and references', { underline: true });
-      doc.moveDown(0.5);
-      refs.forEach((r) => {
-        const label = r.label || 'Link';
-        const url = r.url || '';
-        doc.fontSize(10).font('Helvetica-Bold').text(label);
-        doc.font('Helvetica');
-        if (url) {
-          doc.fillColor('blue').text(url, { link: url, underline: true });
-          doc.fillColor('#000000');
+          section.tools.forEach((tool) => doc.text(`• ${tool}`));
         }
-        doc.moveDown(0.5);
       });
+    }
+
+    if (structured.costEstimate) {
+      addSectionTitle(doc, 'Cost Estimate');
+      const cost = structured.costEstimate;
+      doc.text(`Currency: ${safeText(cost.currency)}`);
+      doc.text(`Low: ${safeText(cost.low)}`);
+      doc.text(`Mid: ${safeText(cost.mid)}`);
+      doc.text(`High: ${safeText(cost.high)}`);
+      doc.moveDown(0.3);
+      doc.text(`Assumptions: ${safeText(cost.assumptions)}`);
+    }
+
+    if (Array.isArray(structured.references) && structured.references.length > 0) {
+      addSectionTitle(doc, 'References');
+      structured.references.forEach((ref) => doc.text(`• ${ref}`));
     }
 
     doc.end();
-    stream.on('finish', () => resolve(outputPath));
-    stream.on('error', reject);
   });
 }
 

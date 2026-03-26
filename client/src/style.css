@@ -596,12 +596,14 @@ header nav button:hover {
 }
 
 .question-legend {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #888;
-  padding: 0 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #555;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: aqua;
 }
 
 .question-text {

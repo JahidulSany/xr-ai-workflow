@@ -18,23 +18,57 @@ function mapBodyName(body) {
   return raw && String(raw).trim() ? String(raw).trim() : null;
 }
 
-const createRecommendation = async (project) => {
-  const prompt = buildPrompt(project);
-  const structured = await chatgpt(prompt);
-
-  // convert structured to JSON
-  try {
-    return JSON.parse(structured.content);
-  } catch (error) {
-    console.error('Error parsing ChatGPT response as JSON:', error);
-    console.error('Original response content:', structured.content);
-    throw new Error('Invalid response format from recommendation engine');
+function normalizeSelections(body) {
+  if (Array.isArray(body.selections) && body.selections.length > 0) {
+    return body.selections.filter(Boolean);
   }
-};
+
+  return [
+    {
+      key: 'xr-type',
+      title: body.xrType,
+      description: body.xrType || '',
+      image: '',
+    },
+    {
+      key: 'object-creation',
+      title: body.objectMethod,
+      description: body.objectMethod || '',
+      image: '',
+    },
+    {
+      key: 'environment-creation',
+      title: body.environmentMethod,
+      description: body.environmentMethod || '',
+      image: '',
+    },
+    {
+      key: 'platform-creation',
+      title: body.platform,
+      description: body.platform || '',
+      image: '',
+    },
+  ].filter((item) => item.title);
+}
+
+async function createStructuredRecommendation(projectData) {
+  const prompt = buildPrompt(projectData);
+  const message = await chatgpt(prompt);
+
+  if (!message?.content) {
+    throw new Error('ChatGPT returned an empty response');
+  }
+
+  try {
+    return JSON.parse(message.content);
+  } catch (error) {
+    console.error('Failed to parse ChatGPT JSON:', message.content);
+    throw new Error('ChatGPT returned invalid JSON');
+  }
+}
 
 router.post('/recommendation', authMiddleware, async (req, res) => {
   try {
-    
     ensureUploadDir();
 
     const {
@@ -46,12 +80,20 @@ router.post('/recommendation', authMiddleware, async (req, res) => {
       platform,
     } = req.body;
 
+    if (!xrType || !objectMethod || !environmentMethod || !platform) {
+      return res.status(400).json({
+        error:
+          'Missing required fields: xrType, objectMethod, environmentMethod, platform',
+      });
+    }
+
+    const selections = normalizeSelections(req.body);
     const userId = req.user.id;
     const projectTitle =
       mapBodyName({ name, projectName }) ||
       `XR project ${new Date().toISOString().slice(0, 10)}`;
 
-    const projectData = {
+    const project = await Project.create({
       userId,
       name: projectTitle,
       xrType,
@@ -59,16 +101,18 @@ router.post('/recommendation', authMiddleware, async (req, res) => {
       environmentMethod,
       platform,
       filename: null,
-    };
-    const project = await Project.create(projectData);
+    });
 
     const filename = `${userId}-${project.id}.pdf`;
     const absolutePath = path.join(UPLOAD_DIR, filename);
 
-    const systemPrompt = buildSystemPrompt();
-    const userPrompt = buildUserPrompt(selections);
-
-    const structured = await chatgpt({ systemPrompt, userPrompt });
+    const structured = await createStructuredRecommendation({
+      xrType,
+      objectMethod,
+      environmentMethod,
+      platform,
+      selections,
+    });
 
     await writeRecommendationPdf({
       outputPath: absolutePath,
@@ -85,6 +129,7 @@ router.post('/recommendation', authMiddleware, async (req, res) => {
 
     res.status(201).json({
       project: project.toJSON(),
+      recommendation: structured,
       filename,
       downloadUrl: `/api/projects/${project.id}/pdf`,
     });
@@ -118,15 +163,7 @@ router.post('/', authMiddleware, async (req, res) => {
       filename: null,
     });
 
-    // pass the project details to the recommendation engine to generate a report
-    const recommendation = await createRecommendation({
-      xrType,
-      objectMethod,
-      environmentMethod,
-      platform,
-    });
-
-    res.status(201).json({ project: post, recommendation });
+    res.status(201).json({ project: post });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Error adding Project' });
@@ -179,27 +216,7 @@ router.get('/:id', authMiddleware, async (req, res) => {
     res.json(row);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Error retrieving Project' });
-  }
-});
-
-router.delete('/:id', authMiddleware, async (req, res) => {
-  try {
-    const project = await Project.findByPk(req.params.id);
-    if (!project || project.userId !== req.user.id) {
-      return res.status(404).json({ message: 'Not found' });
-    }
-    if (project.filename) {
-      const filePath = path.join(UPLOAD_DIR, project.filename);
-      if (fs.existsSync(filePath)) {
-        fs.unlinkSync(filePath);
-      }
-    }
-    await project.destroy();
-    res.json({ ok: true });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Error deleting Project' });
+    res.status(500).json({ error: 'Error retrieving project' });
   }
 });
 
