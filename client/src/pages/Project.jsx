@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 import questions from '../data/questions.json';
 import Question from '../components/Question';
-
 import { useNavigate } from 'react-router-dom';
 import api from '../api';
 import { useSession } from '../contexts/SessionContext';
@@ -29,8 +28,8 @@ const Project = () => {
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [working, setWorking] = useState(false);
-
   const navigate = useNavigate();
+
   const { setProjectId } = useSession();
 
   const selections = [
@@ -53,12 +52,10 @@ const Project = () => {
     e.preventDefault();
     setError('');
     setMessage('');
-
     if (!canSave) {
       setError('Enter a project name and complete all steps.');
       return;
     }
-
     setWorking(true);
     try {
       await api.post('/api/projects', {
@@ -69,7 +66,6 @@ const Project = () => {
         environmentMethod,
         platform,
       });
-
       setMessage('Project saved successfully.');
       setTimeout(() => navigate('/profile'), 900);
     } catch (err) {
@@ -83,14 +79,12 @@ const Project = () => {
     e.preventDefault();
     setError('');
     setMessage('');
-
     if (!answersComplete) {
       setError(
         'Complete all questionnaire steps before running a recommendation.',
       );
       return;
     }
-
     setWorking(true);
     try {
       const payload = {
@@ -102,13 +96,10 @@ const Project = () => {
         platform,
         selections,
       };
-
       const { data } = await api.post('/api/projects/recommendation', payload);
-
       if (data?.project?.id != null) {
         setProjectId(data.project.id);
       }
-
       setMessage(
         'Recommendation report generated. Open your profile to download the PDF.',
       );
@@ -117,7 +108,7 @@ const Project = () => {
       setError(
         err.response?.data?.error ||
           err.message ||
-          'Recommendation failed. Ensure the API server is running and the ChatGPT API is configured correctly.',
+          'Recommendation failed. Ensure the API server is running and Ollama is available (ollama serve).',
       );
     } finally {
       setWorking(false);

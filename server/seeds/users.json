@@ -1,0 +1,247 @@
+[
+    {
+      "username": "techguru01",
+      "email": "techguru01@gmail.com",
+      "password": "password123"
+    },
+    {
+      "username": "coder123",
+      "email": "coder123@gmail.com",
+      "password": "securePass99"
+    },
+    {
+      "username": "devmaster",
+      "email": "devmaster@gmail.com",
+      "password": "codeMaster88"
+    },
+    {
+      "username": "frontendpro",
+      "email": "frontendpro@gmail.com",
+      "password": "frontendDev!"
+    },
+    {
+      "username": "backendboss",
+      "email": "backendboss@gmail.com",
+      "password": "secureBackend1"
+    },
+    {
+      "username": "datascientist99",
+      "email": "datascientist99@gmail.com",
+      "password": "dataScience42"
+    },
+    {
+      "username": "machinelearner",
+      "email": "machinelearner@gmail.com",
+      "password": "mlAIpower12"
+    },
+    {
+      "username": "cloudninja",
+      "email": "cloudninja@gmail.com",
+      "password": "awsAzureGCP"
+    },
+    {
+      "username": "ethicalhacker",
+      "email": "ethicalhacker@gmail.com",
+      "password": "hackTheWorld!"
+    },
+    {
+      "username": "cyberexpert",
+      "email": "cyberexpert@gmail.com",
+      "password": "cyberSecure88"
+    },
+    {
+      "username": "fullstackhero",
+      "email": "fullstackhero@gmail.com",
+      "password": "fullStack99"
+    },
+    {
+      "username": "devopsengineer",
+      "email": "devopsengineer@gmail.com",
+      "password": "ciCdPipeline!"
+    },
+    {
+      "username": "bigdatafan",
+      "email": "bigdatafan@gmail.com",
+      "password": "bigDataRocks"
+    },
+    {
+      "username": "uiuxmaster",
+      "email": "uiuxmaster@gmail.com",
+      "password": "designLover77"
+    },
+    {
+      "username": "blockchainwizard",
+      "email": "blockchainwizard@gmail.com",
+      "password": "cryptoKing123"
+    },
+    {
+      "username": "aiwhiz",
+      "email": "aiwhiz@gmail.com",
+      "password": "deepLearning9"
+    },
+    {
+      "username": "sqlguru",
+      "email": "sqlguru@gmail.com",
+      "password": "databaseMaster!"
+    },
+    {
+      "username": "iotdeveloper",
+      "email": "iotdeveloper@gmail.com",
+      "password": "smartDevices42"
+    },
+    {
+      "username": "embeddedpro",
+      "email": "embeddedpro@gmail.com",
+      "password": "embeddedSys77"
+    },
+    {
+      "username": "gamedevrock",
+      "email": "gamedevrock@gmail.com",
+      "password": "unityUnreal22"
+    },
+    {
+      "username": "networkadmin",
+      "email": "networkadmin@gmail.com",
+      "password": "routerSwitch88"
+    },
+    {
+      "username": "securitychamp",
+      "email": "securitychamp@gmail.com",
+      "password": "firewallSecure!"
+    },
+    {
+      "username": "datasensei",
+      "email": "datasensei@gmail.com",
+      "password": "analyticsPro99"
+    },
+    {
+      "username": "cloudarchitect",
+      "email": "cloudarchitect@gmail.com",
+      "password": "AWSarchitect88"
+    },
+    {
+      "username": "pythonlover",
+      "email": "pythonlover@gmail.com",
+      "password": "snakeCode101"
+    },
+    {
+      "username": "javaprogrammer",
+      "email": "javaprogrammer@gmail.com",
+      "password": "JavaRocks999"
+    },
+    {
+      "username": "javascriptninja",
+      "email": "javascriptninja@gmail.com",
+      "password": "jsMaster007"
+    },
+    {
+      "username": "rustacean",
+      "email": "rustacean@gmail.com",
+      "password": "rustSecureDev"
+    },
+    {
+      "username": "devtester",
+      "email": "devtester@gmail.com",
+      "password": "testingQA123"
+    },
+    {
+      "username": "automator",
+      "email": "automator@gmail.com",
+      "password": "seleniumPyTest"
+    },
+    {
+      "username": "arvrengineer",
+      "email": "arvrengineer@gmail.com",
+      "password": "virtualReality1"
+    },
+    {
+      "username": "iosdev",
+      "email": "iosdev@gmail.com",
+      "password": "swiftObjC99"
+    },
+    {
+      "username": "androidguru",
+      "email": "androidguru@gmail.com",
+      "password": "kotlinAndroid1"
+    },
+    {
+      "username": "ethicalpen",
+      "email": "ethicalpen@gmail.com",
+      "password": "pentestSecure!"
+    },
+    {
+      "username": "cloudsysadmin",
+      "email": "cloudsysadmin@gmail.com",
+      "password": "LinuxAWSadmin"
+    },
+    {
+      "username": "devopscloud",
+      "email": "devopscloud@gmail.com",
+      "password": "DockerK8s99"
+    },
+    {
+      "username": "mlopsengineer",
+      "email": "mlopsengineer@gmail.com",
+      "password": "mlOpsPipeline"
+    },
+    {
+      "username": "backendpro",
+      "email": "backendpro@gmail.com",
+      "password": "nodeDjango99"
+    },
+    {
+      "username": "frontendwiz",
+      "email": "frontendwiz@gmail.com",
+      "password": "reactVueMaster"
+    },
+    {
+      "username": "cryptodev",
+      "email": "cryptodev@gmail.com",
+      "password": "secureHashing77"
+    },
+    {
+      "username": "webdesigner",
+      "email": "webdesigner@gmail.com",
+      "password": "cssHtmlFigma"
+    },
+    {
+      "username": "agilecoach",
+      "email": "agilecoach@gmail.com",
+      "password": "scrumMaster99"
+    },
+    {
+      "username": "roboticsdev",
+      "email": "roboticsdev@gmail.com",
+      "password": "automationBot99"
+    },
+    {
+      "username": "fullstackdev",
+      "email": "fullstackdev@gmail.com",
+      "password": "mernStackDev"
+    },
+    {
+      "username": "techwriter",
+      "email": "techwriter@gmail.com",
+      "password": "docsAPIs999"
+    },
+    {
+      "username": "devmentor",
+      "email": "devmentor@gmail.com",
+      "password": "codeCoach123"
+    },
+    {
+      "username": "scrumexpert",
+      "email": "scrumexpert@gmail.com",
+      "password": "agileProcess7"
+    },
+    {
+      "username": "datastructures",
+      "email": "datastructures@gmail.com",
+      "password": "algorithms101"
+    },
+    {
+      "username": "softwareengineer",
+      "email": "softwareengineer@gmail.com",
+      "password": "softwareDev88"
+    }
+  ]

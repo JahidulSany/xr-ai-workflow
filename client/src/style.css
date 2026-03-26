@@ -337,6 +337,7 @@ li {
   position: relative;
 }
 
+
 .answer-row input[type='radio'] {
   margin-top: 15px;
   margin-right: 12px;
@@ -390,6 +391,8 @@ li {
   border: 1px solid #eee;
 }
 
+
+
 /* --- Dashboard Layout --- */
 .dashboard {
   max-width: 1000px;
@@ -407,7 +410,7 @@ li {
 
 /* --- Dashboard Form & Questionnaire --- */
 .dashboard-form {
-  max-width: 100%;
+  max-width: 100%; 
   margin: 20px 0;
   background: #fff;
   padding: 30px;
@@ -502,6 +505,7 @@ li {
   margin-top: 10px;
 }
 
+
 /* --- Header & Navigation --- */
 header {
   background-color: #333;
@@ -510,7 +514,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .brand-link {
@@ -540,12 +544,12 @@ header nav a {
 
 header nav a:hover {
   color: #fff;
-  text-decoration: none;
+  text-decoration: none; 
 }
 
 /* Logout button specific styling */
 header nav button {
-  background-color: #444;
+  background-color: #444; 
   color: #ff6b6b;
   border: 1px solid #555;
   padding: 6px 12px;
@@ -568,13 +572,14 @@ header nav button:hover {
     gap: 10px;
     text-align: center;
   }
-
+  
   header nav {
     gap: 10px;
     flex-wrap: wrap;
     justify-content: center;
   }
 }
+
 
 /* --- Question Component Styles --- */
 .question-fieldset {
@@ -591,14 +596,12 @@ header nav button:hover {
 }
 
 .question-legend {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #888;
-  padding: 5px 10px;
-  background-color: aqua;
-  border-radius: 5px;
+  padding: 0 10px;
 }
 
 .question-text {
