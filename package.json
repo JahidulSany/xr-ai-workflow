@@ -1,5 +1,5 @@
 {
-  "name": "code",
+  "name": "xr-ai-workflow",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "AI-orchestrated workflows for XR experiences",
   "dependencies": {
     "concurrently": "^9.1.2"
   }
