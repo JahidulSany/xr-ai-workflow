@@ -15,7 +15,7 @@ The application uses AI to analyze user project input and generate an enhanced X
 
 ## Installation
 
-Follow these steps to install and set up LMS3000 locally:
+Follow these steps to install and set up XR AI Workflow locally:
 
 ### 1. Clone the Repository
 
