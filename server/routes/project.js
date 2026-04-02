@@ -220,4 +220,34 @@ router.get('/:id', authMiddleware, async (req, res) => {
   }
 });
 
+
+// delete a project and its associated PDF
+router.delete('/:id', authMiddleware, async (req, res) => {
+  try {
+    const project = await Project.findByPk(req.params.id);
+
+    if (!project || project.userId !== req.user.id) {
+      return res.status(404).json({ message: 'Project not found' });
+    }
+
+    // delete PDF file if it exists
+    if (project.filename) {
+      const filePath = path.join(__dirname, '../uploads/reports', project.filename);
+
+      if (fs.existsSync(filePath)) {
+        fs.unlinkSync(filePath);
+      }
+    }
+
+    // delete project row from database
+    await project.destroy();
+
+    return res.json({ message: 'Project deleted successfully' });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Delete failed' });
+  }
+});
+
+
 module.exports = router;
