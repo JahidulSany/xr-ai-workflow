@@ -1,16 +1,15 @@
 import { useState } from 'react';
 import api from '../api';
 import { Link, useNavigate } from 'react-router-dom';
-import { useSession } from '../contexts/SessionContext';
 
 const Signup = () => {
   const [email, setEmail] = useState('');
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
-
-  const { setUser, setProjectId } = useSession();
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+
   const navigate = useNavigate();
 
   const displayError = (message) => {
@@ -31,7 +30,6 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // run any validation checks
     if (!validatePassword()) {
       return;
     }
@@ -39,25 +37,28 @@ const Signup = () => {
     try {
       const response = await api.post('/api/users', {
         username: userName,
-        email: email,
-        password: password,
-        password2: password2,
+        email,
+        password,
       });
-      const data = response.data;
 
-      localStorage.setItem('authToken', data.token);
-      setUser(data.user);
-      setProjectId(null);
+      setSuccess(response.data.message || 'Account created successfully');
 
-      navigate('/login');
+      // make sure signup does NOT leave any logged-in session behind
+      localStorage.removeItem('authToken');
+
+      setTimeout(() => {
+        navigate('/login');
+      }, 1000);
     } catch (error) {
       console.error('Signup failed', error);
+      displayError(error.response?.data?.error || 'Signup failed');
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <h2>Signup</h2>
+
       <input
         type="text"
         placeholder="Username"
@@ -90,11 +91,13 @@ const Signup = () => {
         required
       />
 
-      {error && <p>{error}</p>}
+      {error && <p className="text-red-600">{error}</p>}
+      {success && <p className="text-green-600">{success}</p>}
 
       <p>
         Already have an account? <Link to="/login">Login</Link>
       </p>
+
       <button type="submit">Signup</button>
     </form>
   );
