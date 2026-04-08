@@ -60,7 +60,16 @@ async function writeRecommendationPdf({ outputPath, structured, meta = {} }) {
           doc.moveDown(0.3);
           doc.font('Helvetica-Bold').text('Suggested tools:');
           doc.font('Helvetica');
-          section.tools.forEach((tool) => doc.text(`• ${tool}`));
+          section.tools.forEach((tool) => {
+            if (typeof tool === 'string') {
+              doc.text(`• ${tool}`);
+            } else {
+              const line = [tool.name, tool.role, tool.url, tool.pricingNotes]
+                .filter(Boolean)
+                .join(' — ');
+              doc.text(`• ${line}`);
+            }
+          });
         }
       });
     }
@@ -78,7 +87,14 @@ async function writeRecommendationPdf({ outputPath, structured, meta = {} }) {
 
     if (Array.isArray(structured.references) && structured.references.length > 0) {
       addSectionTitle(doc, 'References');
-      structured.references.forEach((ref) => doc.text(`• ${ref}`));
+      structured.references.forEach((ref) => {
+        if (typeof ref === 'string') {
+          doc.text(`• ${ref}`);
+        } else {
+          const line = ref.url ? `${ref.label} — ${ref.url}` : safeText(ref.label);
+          doc.text(`• ${line}`);
+        }
+      });
     }
 
     doc.end();
