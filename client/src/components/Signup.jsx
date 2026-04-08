@@ -57,7 +57,7 @@ const Signup = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Signup</h2>
+      <h2 className='text-3xl font-bold text-gray-800'>Signup</h2>
 
       <input
         type="text"
@@ -94,8 +94,14 @@ const Signup = () => {
       {error && <p className="text-red-600">{error}</p>}
       {success && <p className="text-green-600">{success}</p>}
 
-      <p>
-        Already have an account? <Link to="/login">Login</Link>
+      <p className="font-semibold py-2">
+        Already have an account?{' '}
+        <Link
+          to="/login"
+          className="text-blue-600 hover:text-blue-900 hover:underline"
+        >
+          Login
+        </Link>
       </p>
 
       <button type="submit">Signup</button>

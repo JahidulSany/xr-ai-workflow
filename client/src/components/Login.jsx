@@ -12,6 +12,7 @@ const defaultUser = {
 const Login = () => {
   const [email, setEmail] = useState(defaultUser.email);
   const [password, setPassword] = useState(defaultUser.password);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const { setUser, setProjectId } = useSession();
@@ -32,12 +33,15 @@ const Login = () => {
       navigate('/profile');
     } catch (error) {
       console.error('Login failed', error);
+      setError(
+        'Incorrect email or password, please try again or sign up for a new account',
+      );
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Login</h2>
+      <h2 className='text-3xl font-bold text-gray-800'>Login</h2>
       <input
         type="text"
         placeholder="Email"
@@ -52,10 +56,22 @@ const Login = () => {
         onChange={(e) => setPassword(e.target.value)}
         required
       />
-      <p>
-        Need an account? <Link to="/signup">Create one</Link>
+      <p className="font-semibold py-2">
+        Need an account?{' '}
+        <Link
+          className="text-blue-600 hover:text-blue-900 hover:underline
+        "
+          to="/signup"
+        >
+          Create one
+        </Link>
       </p>
       <button type="submit">Login</button>
+      {error && (
+        <p className="my-4 text-sm text-red-800">
+          {error}
+        </p>
+      )}
     </form>
   );
 };
