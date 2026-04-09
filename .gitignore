@@ -138,3 +138,10 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Generated PDF uploads
+server/uploads/
+
+# Capacitor native platforms
+client/android/
+client/ios/
