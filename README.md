@@ -79,6 +79,50 @@ The application should now be running locally.
 
 Feel free to submit issues and pull requests to improve XR AI Workflow. Contributions are welcome!
 
+## Mobile App (Capacitor)
+
+This project uses [Capacitor](https://capacitorjs.com) to wrap the React app as a native iOS and Android app.
+
+The `client/ios/` and `client/android/` folders are excluded from git (see `.gitignore`) as they are generated locally. To set them up after cloning:
+
+### Prerequisites
+
+- **Android:** Install [Android Studio](https://developer.android.com/studio)
+- **iOS (Mac only):** Install Xcode from the App Store, then install CocoaPods:
+
+```sh
+brew install ruby
+echo 'export PATH="/opt/homebrew/opt/ruby/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+sudo gem install cocoapods
+echo 'export PATH="/opt/homebrew/lib/ruby/gems/4.0.0/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+### Add the native platforms
+
+```sh
+cd client
+npx cap add ios
+npx cap add android
+```
+
+### Build and sync
+
+After making changes to the React app, build and sync to the native projects:
+
+```sh
+npm run build
+npx cap sync
+```
+
+### Open in native IDE
+
+```sh
+npx cap open ios      # opens Xcode
+npx cap open android  # opens Android Studio
+```
+
 ## License
 
 This project is licensed under the **MIT License**.

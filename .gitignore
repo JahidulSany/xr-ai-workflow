@@ -141,3 +141,7 @@ vite.config.ts.timestamp-*
 
 # Generated PDF uploads
 server/uploads/
+
+# Capacitor native platforms
+client/android/
+client/ios/
